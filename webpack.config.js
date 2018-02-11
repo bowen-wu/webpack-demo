@@ -24,7 +24,15 @@ module.exports = {
                     {
                         loader: "style-loader" // creates style nodes from JS strings
                     }, {
-                        loader: "css-loader" // translates CSS into CommonJS
+                        loader: "css-loader", // translates CSS into CommonJS
+                        options: { importLoaders: 1 }
+                    }, {
+                        loader: "postcss-loader",
+                        options: {
+                            plugins: () => [
+                                require('autoprefixer')
+                            ]
+                        }
                     }, {
                         loader: "sass-loader" // compiles Sass to CSS
                     }
